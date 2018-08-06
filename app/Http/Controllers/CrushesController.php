@@ -17,11 +17,11 @@ class CrushesController extends Controller
 
     public function create()
     {
+        $crush = new Crush();
         return view('crushes.create', array(
-            'crush'      => $crush,
-            'action'     => route('crushes.store'),
-            'submit_text'=> "Create Crush"
-        ));
+            'crush'=>$crush,
+            'action'=>route('crushes.store'),
+            'submit_text'=>"Create Crush"));
     }
 
     public function store(Request $request)
