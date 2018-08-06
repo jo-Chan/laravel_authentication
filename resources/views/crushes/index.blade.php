@@ -4,7 +4,8 @@
             <td>First Name</td>
             <td>Last Name</td>
             <td>Facebook Profile</td>
-            <td>Contact Number</td>                        
+            <td>Contact Number</td>    
+            <td>Action</td>                    
         </tr>
     </thead>
     <tbody>
@@ -14,7 +15,15 @@
                 <td>{{ $crush->last_name }}</td>
                 <td>{{ $crush->fb_profile_link }}</td>
                 <td>{{ $crush->contact_number }}</td>
+                <td><a href="/crushes/{{ $crush -> id }}/edit">Edit</a> &nbsp <a href="/crushes/{{ $crush -> id }}/destroy">Delete</a></td>
             </tr>
         @endforeach
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="/crushes/create">Add Crush</a></td>
+            </tr>
     </tbody>
 </table>
