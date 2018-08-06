@@ -10,7 +10,7 @@ class CrushesController extends Controller
 {
     public function index()
     {
-        $crushes =Crush::all();
+        $crushes = Crush::all();
         
         return view('crushes/index', array('crushes' => $crushes));
     }
