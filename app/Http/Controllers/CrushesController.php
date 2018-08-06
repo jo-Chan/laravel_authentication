@@ -21,8 +21,6 @@ class CrushesController extends Controller
         return view('crushes.create', array(
             'crush'      => $crush,
             'action'     => route('crushes.store'),
-            'crush'      => $crush,
-            'action'     => route('crushes.store'),
             'submit_text'=> "Create Crush"));
     }
 
