@@ -19,13 +19,10 @@ class CrushesController extends Controller
     {
         $crush = new Crush();
         return view('crushes.create', array(
-<<<<<<< HEAD
             'crush'      =>$crush,
             'action'     =>route('crushes.store'),
-=======
-            'crush'=>$crush,
-            'action'=>route('crushes.store'),
->>>>>>> b4a90256bb0fac77f2dc38b7908d3e75069164c7
+            'crush'      =>$crush,
+            'action'     =>route('crushes.store'),
             'submit_text'=>"Create Crush"));
     }
 
