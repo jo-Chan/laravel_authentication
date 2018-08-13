@@ -33,13 +33,21 @@ class CrushesController extends Controller
     }
     
     private function setAndSaveCrushData($crush, $request){
-        $crush = new Crush();
-        $crush -> first_name = $request->first_name;
-        $crush -> last_name = $request->last_name;
-        $crush -> fb_profile_link = $request->fb_profile_link;
-        $crush -> contact_number = $request->contact_number;
-        $crush -> created_at = Carbon::now();
-        $crush -> updated_at = Carbon::now();
+
+        $request->validate([
+            'first_name'      => 'required|alpha',
+            'last_name'       => 'required|alpha',
+            'fb_profile_link' => 'required|url',
+            'contact_number'  => 'required|digits:11',
+        ]);
+
+        $crush =  new Crush();
+        $crush -> first_name      = $request -> first_name;
+        $crush -> last_name       = $request -> last_name;
+        $crush -> fb_profile_link = $request -> fb_profile_link;
+        $crush -> contact_number  = $request -> contact_number;
+        $crush -> created_at      = Carbon::now();
+        $crush -> updated_at      = Carbon::now();
         $crush -> save();
     }
 
@@ -54,7 +62,7 @@ class CrushesController extends Controller
         
         return view('crushes.create', array(
             'crush'        => $crush,
-            'action'       => route('crushes.id.update', array('id'=>$crush->$id)),
+            'action'       => route('crushes.id.update', array('id'=>$crush->id)),
             'submit_text'  => "Update Crush")
         );
     }
