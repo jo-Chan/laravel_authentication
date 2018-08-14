@@ -35,7 +35,10 @@ class QualitiesController extends Controller
     // Delete Crush Quality
     public function destroy($id)
     {
-        //
+        $quality = Quality::find($id);
+        $quality -> delete();
+        
+        return redirect() -> back();
     }
 
 }

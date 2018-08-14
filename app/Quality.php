@@ -10,6 +10,6 @@ class Quality extends Model
     
     public function crushes()
     {
-        return $this->belongsTo('App\Crushes', 'crush_id');
+        return $this->belongsTo('App\Crush', 'crush_id');
     }
 }

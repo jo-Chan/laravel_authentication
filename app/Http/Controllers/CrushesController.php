@@ -61,11 +61,10 @@ class CrushesController extends Controller
     {
         $crush = Crush::find($id);
         $quality = Quality::all();
-
+        
         return view('crushes.show', array(
             'crush'     => $crush,
-            'qualities' => $quality
-        ));
+            'qualities' => $quality));
     }
 
     // Edit Crush
@@ -92,9 +91,9 @@ class CrushesController extends Controller
     // Delete Crush
     public function destroy($id)
     {
-        $crush = Crush::find($id);
-        $crush -> delete();
+        $quality = quality::find($id);
+        $quality -> delete();
         
-        return redirect() -> back();
+        return redirect() -> route('crushes.id.show');
     }
 }
