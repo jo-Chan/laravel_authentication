@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Crush;
+use App\Quality;
 use Carbon\Carbon;
 
 class CrushesController extends Controller
 {
+    // View Crushes
     public function index()
     {
         $crushes = Crush::all();
@@ -15,6 +17,7 @@ class CrushesController extends Controller
         return view('crushes/index', array('crushes' => $crushes));
     }
 
+    // Create Crush
     public function create()
     {
         $crush = new Crush();
@@ -24,6 +27,7 @@ class CrushesController extends Controller
             'submit_text'=> "Create Crush"));
     }
 
+    // Save Crush
     public function store(Request $request)
     {
         $crush = new Crush();
@@ -32,6 +36,7 @@ class CrushesController extends Controller
         return redirect()->route('crushes.index'); 
     }
     
+    // Save function for store and update
     private function setAndSaveCrushData($crush, $request){
 
         $request->validate([
@@ -51,11 +56,19 @@ class CrushesController extends Controller
         $crush -> save();
     }
 
+    // View Crush information
     public function show($id)
     {
-        //
+        $crush = Crush::find($id);
+        $quality = Quality::all();
+
+        return view('crushes.show', array(
+            'crush'     => $crush,
+            'qualities' => $quality
+        ));
     }
 
+    // Edit Crush
     public function edit($id)
     {
         $crush = Crush::find($id);
@@ -66,7 +79,8 @@ class CrushesController extends Controller
             'submit_text'  => "Update Crush")
         );
     }
-
+    
+    // Updates edited Crush
     public function update(Request $request, $id)
     {
         $crush = new Crush();
@@ -75,6 +89,7 @@ class CrushesController extends Controller
         return redirect()->route('crushes.index'); 
     }
 
+    // Delete Crush
     public function destroy($id)
     {
         $crush = Crush::find($id);

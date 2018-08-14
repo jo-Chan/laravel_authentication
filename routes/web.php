@@ -13,16 +13,34 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+});  
 
-Route::get('crushes', 'CrushesController@index')->name('crushes.index');
+// Index
+Route::get('crushes',              'CrushesController@index')    -> name('crushes.index');
 
-Route::get('crushes/create', 'CrushesController@create')->name('crushes.create');
+// Create Crush
+Route::get('crushes/create',       'CrushesController@create')   -> name('crushes.create');
 
-Route::post('crushes/store', 'CrushesController@store')->name('crushes.store');
+// Store created Crush
+Route::post('crushes/store',       'CrushesController@store')    -> name('crushes.store');
 
-Route::get('crushes/{id}/edit', 'CrushesController@edit')->name('crushes.id.edit');
+// Edit Crush information
+Route::get('crushes/{id}/edit',    'CrushesController@edit')     -> name('crushes.id.edit');
 
-Route::post('crushes/{id}/update', 'CrushesController@update')->name('crushes.id.update');
+// Save updated information of Crush
+Route::post('crushes/{id}/update', 'CrushesController@update')   -> name('crushes.id.update');
 
-Route::get('crushes/{id}/destroy', 'CrushesController@destroy')->name('crushes.id.destroy');
+// Delete Crush
+Route::get('crushes/{id}/destroy', 'CrushesController@destroy')  -> name('crushes.id.destroy');
+
+// Show Crush information + Qualities
+Route::get('crushes/{id}/show',    'CrushesController@show')     -> name('crushes.id.show');
+
+// Add quality
+Route::get('crushes/{id}/quality', 'QualitiesController@create') -> name('crushes.id.quality');
+
+// Save quality
+Route::get('crushes/{id}/store',   'QualitiesController@store')  -> name('crushes.id.store');
+
+
+
