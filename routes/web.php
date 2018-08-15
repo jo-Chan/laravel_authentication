@@ -43,7 +43,7 @@ Route::get('crushes/{id}/quality', 'QualitiesController@create')   -> name('crus
 Route::get('crushes/{id}/store',   'QualitiesController@store')    -> name('crushes.id.store');
 
 // Delete quality
-Route::get('crushes/{id}/destroy',   'QualitiesController@destroy')  -> name('crushes.id.destroy');
+Route::get('crushes/{id}/destroy', 'QualitiesController@destroy')  -> name('crushes.id.destroy');
 
 
 
