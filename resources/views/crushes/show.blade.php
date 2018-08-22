@@ -15,8 +15,7 @@
 
 <ul>
     @foreach ( $crush -> qualities as $quality)
-        <li>{{ $quality -> quality }} <a href="{{ route('crushes.id.destroy', array( 'id'    => $quality -> id,
-                                                                                     'crush' => $quality -> crush_id))
+        <li>{{ $quality -> quality }} <a href="{{ route('crushes.id.destroy', array( 'id'    => $quality -> id))
         }}">Delete</a></li>
     @endforeach
 </ul>
