@@ -91,9 +91,9 @@ class CrushesController extends Controller
     // Delete Crush
     public function destroy($id)
     {
-        $quality = quality::find($id);
-        $quality -> delete();
+        $crush = Crush::find($id);
+        $crush -> delete();
         
-        return redirect() -> route('crushes.id.show');
+        return redirect() -> route('crushes.index');
     }
 }
