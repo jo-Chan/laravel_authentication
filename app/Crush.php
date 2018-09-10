@@ -8,6 +8,6 @@ class Crush extends Model
 {
     public function qualities()
     {
-        return $this->hasMany('App\Quality', 'crush_id');
+        return $this->hasMany('App\Quality');
     }
 }

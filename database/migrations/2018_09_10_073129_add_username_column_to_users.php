@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQualitiesTable extends Migration
+class AddUsernameColumnToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateQualitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('qualities', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('crush_id');
-            $table->string('quality');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('username')->unique();
         });
     }
 
@@ -27,6 +25,8 @@ class CreateQualitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qualities');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('username');
+        });
     }
 }

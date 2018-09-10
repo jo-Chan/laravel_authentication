@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quality extends Model
 {
-    public $timestamps = false;
-    
-    public function crushes()
+    public function crush()
     {
-        return $this->belongsTo('App\Crush', 'crush_id');
+    	return $this->belongsTo('App\Crush');
     }
 }
